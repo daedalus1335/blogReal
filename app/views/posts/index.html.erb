@@ -1,7 +1,22 @@
+
+<h1>Create A New Post!</h1>
+<%= form_for :post, url: posts_path do |f| %>
+<p>
+<%= f.label :title %><br>
+<%= f.text_field :title %>
+</p>
+<p>
+  <%= f.label :body %><br>
+  <%= f.text_area :body %>
+</p>
+<p>
+  <%= f.submit %>
+</p>
+<% end %>
+
 <% @posts.each do |post| %>
 
 <style>
-
   a:link    {color:black; background-color:transparent; text-decoration:none}
   a:visited {color:black; background-color:white; text-decoration:underline}
   a:hover   {color:blue; background-color:transparent}
@@ -13,23 +28,34 @@ body {
       font-family: "Avenir Next";
 }
 
+
+
 .post_wrapper {
-  font-size: 25px;
+  display: block; /* or inline-block */
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
   padding: 20px;
-  width: 500px ;
-  margin-left: auto ;
   margin-right: auto ;
+  margin-bottom: 0px;
 }
 
-
+.body {
+  display: block; /* or inline-block */
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 5.6em;
+  line-height: 1.8em;
+}
 </style>
-
 <div class='col-100'>
-
 <div class='post_wrapper'>
   <h2 class ='title'><%= link_to post.title, post %></h2>
-  <p class='date'><%= post.created_at.strftime("%B, %d, %Y") %></p>
+  <p class='date'<%= post.created_at.strftime("%B, %d, %Y") %></p>
+  <p class='body', maxlength="500"><%= post.body %></p>
+  <HR WIDTH="100%">
+  </div>
 </div>
 
-</div>
 <% end %>
