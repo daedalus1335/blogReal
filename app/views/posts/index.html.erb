@@ -1,6 +1,35 @@
 <% @posts.each do |post| %>
+
+<style>
+
+  a:link    {color:black; background-color:transparent; text-decoration:none}
+  a:visited {color:black; background-color:white; text-decoration:underline}
+  a:hover   {color:blue; background-color:transparent}
+  a:active  {color:blue; background-color:transparent; text-decoration:underline}
+
+body {
+  background-color: #AFAAA8;
+      color: white;
+      font-family: "Avenir Next";
+}
+
+.post_wrapper {
+  font-size: 25px;
+  padding: 20px;
+  width: 500px ;
+  margin-left: auto ;
+  margin-right: auto ;
+}
+
+
+</style>
+
+<div class='col-100'>
+
 <div class='post_wrapper'>
   <h2 class ='title'><%= link_to post.title, post %></h2>
   <p class='date'><%= post.created_at.strftime("%B, %d, %Y") %></p>
+</div>
+
 </div>
 <% end %>
