@@ -1,5 +1,5 @@
 
-<h1>Create A New Post!!!</h1>
+<h1>Create A New Post!</h1>
 
 <%= form_for :post, url: posts_path do |f| %>
 <p>
@@ -42,18 +42,19 @@ body {
 }
 
 .body {
-  display: block; /* or inline-block */
+  display: inline-block; /* or inline-block */
   text-overflow: ellipsis;
   word-wrap: break-word;
   overflow: hidden;
   max-height: 5.6em;
   line-height: 1.8em;
 }
+
 </style>
 <div class='col-100'>
 <div class='post_wrapper'>
   <h2 class ='title'><%= link_to post.title, post %></h2>
-  <p class='date'<%= post.created_at.strftime("%B, %d, %Y") %></p>
+  <p class='date'><%= post.created_at.strftime("%B, %d, %Y") %></p>
   <p class='body', maxlength="500"><%= post.body %></p>
   <HR WIDTH="100%">
   </div>
